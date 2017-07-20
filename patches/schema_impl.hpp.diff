@@ -1,0 +1,13 @@
+diff --git a/libraries/schema/include/graphene/schema/schema_impl.hpp b/libraries/schema/include/graphene/schema/schema_impl.hpp
+index 414aca6..c4a1ab3 100644
+--- a/libraries/schema/include/graphene/schema/schema_impl.hpp
++++ b/libraries/schema/include/graphene/schema/schema_impl.hpp
+@@ -177,7 +177,7 @@ void schema_impl< ObjectType,  true,  true >::get_str_schema( std::string& s )
+ template<typename ObjectType >
+ std::shared_ptr< abstract_schema > create_schema( int64_t id )
+ {
+-   return std::make_shared< typename schema_reflect<ObjectType>::schema_impl_type >( id, fc::get_typename<ObjectType>::name() );
++   return std::make_shared< typename schema_reflect<ObjectType>::schema_impl_type >( id, typeid(fc::static_variant<ObjectType>).name() );
+ }
+ 
+ } } }

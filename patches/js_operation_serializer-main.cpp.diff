@@ -1,0 +1,13 @@
+diff --git a/programs/js_operation_serializer/main.cpp b/programs/js_operation_serializer/main.cpp
+index 0210212..19bac43 100644
+--- a/programs/js_operation_serializer/main.cpp
++++ b/programs/js_operation_serializer/main.cpp
+@@ -90,7 +90,7 @@ bool register_serializer( const string& name, std::function<void()> sr )
+    return false;
+ }
+ 
+-template<typename T> struct js_name { static std::string name(){ return  remove_namespace(fc::get_typename<T>::name()); }; };
++template<typename T> struct js_name { static std::string name(){ return  remove_namespace(typeid(fc::static_variant<T>).name()); }; };
+ 
+ template<typename T, size_t N>
+ struct js_name<fc::array<T,N>>

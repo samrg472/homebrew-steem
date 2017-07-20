@@ -1,0 +1,13 @@
+diff --git a/libraries/wallet/generate_api_documentation.pl b/libraries/wallet/generate_api_documentation.pl
+index 88a8da1..4560b51 100755
+--- a/libraries/wallet/generate_api_documentation.pl
++++ b/libraries/wallet/generate_api_documentation.pl
+@@ -3,7 +3,7 @@
+ use Text::Wrap;
+ use IO::File;
+ 
+-require 'doxygen/perlmod/DoxyDocs.pm';
++require './doxygen/perlmod/DoxyDocs.pm';
+ 
+ my($outputFileName) = @ARGV;
+ die "usage: $0 output_file_name" unless $outputFileName;
