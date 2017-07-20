@@ -5,6 +5,8 @@ class Steem < Formula
     :tag => "v0.19.0",
     :revision => "1ad862ef3132b9cfcba63ca823f7c3391c0f8580"
 
+  option "with-test-net", "Builds steem for use in a private testnet."
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
@@ -37,11 +39,16 @@ class Steem < Formula
   end
 
   def install
+
     cmake_args = %W[
       CMakeLists.txt
       -DCMAKE_INSTALL_PREFIX="#{prefix}"
       -DCMAKE_BUILD_TYPE=Release
     ]
+
+    if build.with? "test-net"
+      cmake_args.push("-DBUILD_STEEM_TESTNET=ON")
+    end
 
     system "pip3", "install", "jinja2"
     system "cmake", *(cmake_args + std_cmake_args)
