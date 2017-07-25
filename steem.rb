@@ -2,8 +2,8 @@ class Steem < Formula
   desc "Steemit is a blockchain-powered social media platform."
   homepage "https://steemit.com/"
   url "https://github.com/steemit/steem.git",
-    :tag => "v0.19.0",
-    :revision => "1ad862ef3132b9cfcba63ca823f7c3391c0f8580"
+    :tag => "v0.19.1",
+    :revision => "88d909802a802846a8f0553d8e38037607e37658"
 
   option "with-test-net", "Builds steem for use in a private testnet."
 
